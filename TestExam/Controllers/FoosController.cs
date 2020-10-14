@@ -12,30 +12,33 @@ namespace TestExam.Controllers
     public class FoosController : ControllerBase
     {
         private IEnumerable<Foo> FoosDataSet { get; set; }
+
         public FoosController()
         {
-            var foosList = new List<Foo>();
+            //Filled with random data for demostration purposes
+
+            var fooList = new List<Foo>();
 
             for (int i = 1; i <= 100; i++)
             {
-                foosList.Add(new Foo
+                fooList.Add(new Foo
                 {
                     Id = i,
                     Col1 = $"col1 row{i}",
-                    Col2 =i*10,
+                    Col2 = i*10,
                     Col3 = i*100,
                     Col4 = i*1000
                 });
             }
 
-            this.FoosDataSet = foosList;
+            FoosDataSet = fooList;
         }
 
 
         [HttpGet]
         public IEnumerable<Foo> Get()
         {
-            var fooList = this.FoosDataSet.ToArray();
+            var fooList = FoosDataSet.ToArray();
             return fooList;
         }
 
