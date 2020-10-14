@@ -1,0 +1,26 @@
+<h1 id="tableLabel">Foo List</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!fooList"><em>Loading...</em></p>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="fooList">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Col 1</th>
+      <th>Col 2</th>
+      <th>Col 3</th>
+      <th>Col 4</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let foo of fooList">
+      <td>{{ foo.id }}</td>
+      <td>{{ foo.col1 }}</td>
+      <td>{{ foo.col2 }}</td>
+      <td>{{ foo.col3 }}</td>
+      <td>{{ foo.col4 }}</td>
+    </tr>
+  </tbody>
+</table>
